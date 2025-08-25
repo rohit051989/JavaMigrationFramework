@@ -1,15 +1,16 @@
 package org.eclipse.cargotracker.domain.model.cargo;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -24,6 +25,7 @@ import org.eclipse.cargotracker.domain.shared.AbstractSpecification;
 @Embeddable
 public class RouteSpecification extends AbstractSpecification<Itinerary> implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	@ManyToOne
 	@JoinColumn(name = "spec_origin_id", updatable = false)

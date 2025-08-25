@@ -1,5 +1,7 @@
 package org.eclipse.cargotracker.domain.model.handling;
 
+import java.io.Serial;
+
 import org.eclipse.cargotracker.domain.model.cargo.TrackingId;
 
 /**
@@ -7,6 +9,7 @@ import org.eclipse.cargotracker.domain.model.cargo.TrackingId;
  */
 public class UnknownCargoException extends CannotCreateHandlingEventException {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	private final TrackingId trackingId;
 

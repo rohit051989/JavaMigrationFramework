@@ -1,9 +1,10 @@
 package org.eclipse.cargotracker.domain.model.cargo;
 
+import java.io.Serial;
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 
 import org.apache.commons.lang3.Validate;
 
@@ -14,6 +15,7 @@ import org.apache.commons.lang3.Validate;
 @Embeddable
 public class TrackingId implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "tracking_id", unique = true, updatable = false)

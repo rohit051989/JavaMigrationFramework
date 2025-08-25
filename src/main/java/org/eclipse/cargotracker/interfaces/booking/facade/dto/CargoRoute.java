@@ -1,5 +1,6 @@
 package org.eclipse.cargotracker.interfaces.booking.facade.dto;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ import org.eclipse.cargotracker.application.util.LocationUtil;
  */
 public class CargoRoute implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	private static final SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy hh:mm a z");

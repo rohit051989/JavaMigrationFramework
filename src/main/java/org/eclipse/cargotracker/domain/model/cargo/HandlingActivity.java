@@ -1,13 +1,14 @@
 package org.eclipse.cargotracker.domain.model.cargo;
 
+import java.io.Serial;
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -24,6 +25,7 @@ import org.eclipse.cargotracker.domain.model.voyage.Voyage;
 @Embeddable
 public class HandlingActivity implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	@Enumerated(EnumType.STRING)
 	@Column(name = "next_expected_handling_event_type")

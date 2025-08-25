@@ -1,10 +1,11 @@
 package org.eclipse.cargotracker.domain.model.location;
 
+import java.io.Serial;
 import java.io.Serializable;
 
-import javax.persistence.Embeddable;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
+import jakarta.persistence.Embeddable;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 import org.apache.commons.lang3.Validate;
 
@@ -17,6 +18,7 @@ import org.apache.commons.lang3.Validate;
 @Embeddable
 public class UnLocode implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@NotNull

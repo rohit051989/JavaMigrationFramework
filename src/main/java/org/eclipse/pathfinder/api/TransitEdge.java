@@ -1,5 +1,6 @@
 package org.eclipse.pathfinder.api;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -9,6 +10,7 @@ import java.util.Date;
  */
 public class TransitEdge implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	private String voyageNumber;

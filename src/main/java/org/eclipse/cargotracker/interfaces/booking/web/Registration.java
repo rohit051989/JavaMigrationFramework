@@ -1,16 +1,17 @@
 package org.eclipse.cargotracker.interfaces.booking.web;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.annotation.PostConstruct;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import org.eclipse.cargotracker.interfaces.booking.facade.BookingServiceFacade;
 import org.eclipse.cargotracker.interfaces.booking.facade.dto.Location;
@@ -30,6 +31,7 @@ import org.eclipse.cargotracker.interfaces.booking.facade.dto.Location;
 @ViewScoped
 public class Registration implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	private static final String FORMAT = "yyyy-MM-dd";

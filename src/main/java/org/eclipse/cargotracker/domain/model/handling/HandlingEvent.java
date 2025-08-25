@@ -1,21 +1,22 @@
 package org.eclipse.cargotracker.domain.model.handling;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.NamedQuery;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.persistence.Transient;
+import jakarta.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -48,6 +49,7 @@ import org.eclipse.cargotracker.domain.shared.DomainObjectUtils;
 @NamedQuery(name = "HandlingEvent.findByTrackingId", query = "Select e from HandlingEvent e where e.cargo.trackingId = :trackingId")
 public class HandlingEvent implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue

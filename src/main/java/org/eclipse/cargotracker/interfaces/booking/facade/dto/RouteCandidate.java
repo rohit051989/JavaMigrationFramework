@@ -1,5 +1,6 @@
 package org.eclipse.cargotracker.interfaces.booking.facade.dto;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
  */
 public class RouteCandidate implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	private List<Leg> legs;

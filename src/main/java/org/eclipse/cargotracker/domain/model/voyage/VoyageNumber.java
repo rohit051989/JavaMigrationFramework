@@ -1,16 +1,18 @@
 package org.eclipse.cargotracker.domain.model.voyage;
 
+import java.io.Serial;
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import jakarta.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.Validate;
 
 @Embeddable
 public class VoyageNumber implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	@Column(name = "voyage_number")

@@ -27,10 +27,10 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 
-		<javaee_api.version>7.0</javaee_api.version>
+		<javaee_api.version>9.1.0</javaee_api.version>
 
 		<!-- Arquillian properties -->
 		<arquillian.core.version>1.4.1.Final</arquillian.core.version>
@@ -61,6 +61,28 @@
                 <enabled>false</enabled>
             </snapshots>
         </repository>
+        <repository>
+            <id>openrewrite-releases</id>
+            <name>OpenRewrite Releases</name>
+            <url>https://repo.openrewrite.org/maven-releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>openrewrite-snapshots</id>
+            <name>OpenRewrite Snapshots</name>
+            <url>https://repo.openrewrite.org/maven-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
     </repositories>
 	<dependencyManagement>
 		<dependencies>
@@ -81,8 +103,23 @@
 
 		<!-- Jakarta EE API -->
 		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
+			<groupId>jakarta.inject</groupId>
+			<artifactId>jakarta.inject-api</artifactId>
+			<version>1.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.ws.rs</groupId>
+			<artifactId>jakarta.ws.rs-api</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.xml.bind</groupId>
+			<artifactId>jakarta.xml.bind-api</artifactId>
+			<version>2.3.3</version>
+		</dependency>
+		<dependency>
+			<groupId>jakarta.platform</groupId>
+			<artifactId>jakarta.jakartaee-api</artifactId>
 			<version>${javaee_api.version}</version>
 			<scope>provided</scope>
 		</dependency>
@@ -100,6 +137,12 @@
 			<version>2.28</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jaxb</groupId>
+			<artifactId>jaxb-runtime</artifactId>
+			<version>2.3.9</version>
+			<scope>runtime</scope>
+		</dependency>
 
 		<!-- The third-party dependencies this application has -->
 		<dependency>
@@ -116,7 +159,8 @@
 		<dependency>
 			<groupId>org.primefaces</groupId>
 			<artifactId>primefaces</artifactId>
-			<version>8.0</version>
+			<version>14.0.12</version>
+			<classifier>jakarta</classifier>
 		</dependency>
 
 		<!-- Test dependencies -->
@@ -149,7 +193,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
-				<version>3.2.3</version>
+				<version>3.4.0</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
@@ -195,6 +239,29 @@
 							</container>
 						</configuration>
 					</plugin>
+                    <plugin>
+
+                        <groupId>org.openrewrite.maven</groupId>
+                        <artifactId>rewrite-maven-plugin</artifactId>
+                        <version>6.16.1</version>
+                        <configuration>
+                            <activeRecipes>
+                                <!-- 1) javax -> jakarta namespaces -->
+                                <recipe>org.openrewrite.java.migrate.jakarta.JavaxMigrationToJakarta</recipe>
+                                <!-- 2) lift build & code to Java 17 -->
+                                <recipe>org.openrewrite.java.migrate.UpgradeBuildToJava17</recipe>
+                                <recipe>org.openrewrite.java.migrate.UpgradeToJava17</recipe>
+                            </activeRecipes>
+                        </configuration>
+                        <dependencies>
+                            <!-- https://mvnrepository.com/artifact/org.openrewrite.recipe/rewrite-migrate-java -->
+                            <dependency>
+                                <groupId>org.openrewrite.recipe</groupId>
+                                <artifactId>rewrite-migrate-java</artifactId>
+                                <version>3.15.1</version>
+                            </dependency>
+                        </dependencies>
+                    </plugin>
 				</plugins>
 			</build>
 		</profile>

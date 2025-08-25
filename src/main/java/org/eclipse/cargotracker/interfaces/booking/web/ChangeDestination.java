@@ -1,12 +1,13 @@
 package org.eclipse.cargotracker.interfaces.booking.web;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import org.eclipse.cargotracker.interfaces.booking.facade.BookingServiceFacade;
 import org.eclipse.cargotracker.interfaces.booking.facade.dto.CargoRoute;
@@ -29,6 +30,7 @@ import org.primefaces.PrimeFaces;
 @ViewScoped
 public class ChangeDestination implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	private String trackingId;

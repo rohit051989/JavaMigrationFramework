@@ -1,11 +1,12 @@
 package org.eclipse.cargotracker.infrastructure.persistence.jpa;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 import org.eclipse.cargotracker.domain.model.voyage.Voyage;
 import org.eclipse.cargotracker.domain.model.voyage.VoyageNumber;
@@ -14,6 +15,7 @@ import org.eclipse.cargotracker.domain.model.voyage.VoyageRepository;
 @ApplicationScoped
 public class JpaVoyageRepository implements VoyageRepository, Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@PersistenceContext

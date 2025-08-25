@@ -1,13 +1,14 @@
 package org.eclipse.cargotracker.interfaces.tracking.web;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import javax.faces.view.ViewScoped;
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import org.eclipse.cargotracker.domain.model.cargo.Cargo;
 import org.eclipse.cargotracker.domain.model.cargo.CargoRepository;
@@ -32,6 +33,7 @@ import org.eclipse.cargotracker.domain.model.handling.HandlingEventRepository;
 @ViewScoped
 public class Track implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	@Inject

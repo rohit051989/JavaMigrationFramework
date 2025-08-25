@@ -9,20 +9,21 @@ import static org.eclipse.cargotracker.domain.model.cargo.TransportStatus.NOT_RE
 import static org.eclipse.cargotracker.domain.model.cargo.TransportStatus.ONBOARD_CARRIER;
 import static org.eclipse.cargotracker.domain.model.cargo.TransportStatus.UNKNOWN;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Iterator;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Embedded;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.Embedded;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
+import jakarta.validation.constraints.NotNull;
 
 import org.apache.commons.lang3.Validate;
 import org.apache.commons.lang3.builder.EqualsBuilder;
@@ -40,6 +41,7 @@ import org.eclipse.cargotracker.domain.shared.DomainObjectUtils;
 @Embeddable
 public class Delivery implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	// Null object pattern.
 	public static final Date ETA_UNKOWN = null;

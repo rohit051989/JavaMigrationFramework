@@ -3,8 +3,10 @@ package org.eclipse.cargotracker.domain.model.voyage;
 import org.eclipse.cargotracker.domain.model.location.Location;
 import org.apache.commons.lang3.Validate;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -17,6 +19,7 @@ import java.util.List;
 
 public class Voyage implements Serializable {
 
+	@Serial
 	private static final long serialVersionUID = 1L;
 	
 	// Null object pattern
